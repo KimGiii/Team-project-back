@@ -23,14 +23,12 @@ public class board_Entity {
     private String date;
     private String videoId;
     private String text;
-    //private String writer;
 
     public board_Entity(PostBoard_RequestDTO dto, String email) {
         this.title = dto.getTitle();
         this.date = dto.getDate();
         this.text =  dto.getText();
         this.videoId = dto.getVideoId();
-        //this.writer = email;
     }
 
     public void patch(PatchBoard_RequestDTO dto) {

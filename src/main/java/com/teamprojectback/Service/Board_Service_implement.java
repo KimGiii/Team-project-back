@@ -23,10 +23,7 @@ public class Board_Service_implement implements Board_Service {
     public ResponseEntity<? super PostBoard_ResponseDTO> postBoard(PostBoard_RequestDTO dto, String email) {
 
         try {
-
             boolean existedUser = userRepository.existsByEmail(email);
-            if (!existedUser) return PostBoard_ResponseDTO.notExistUser();
-
             board_Entity board_Entity = new board_Entity(dto, email);
             boardRepository.save(board_Entity);
         } catch (Exception exception) {
@@ -42,7 +39,6 @@ public class Board_Service_implement implements Board_Service {
 
         try {
             boolean existedUser = userRepository.existsByEmail(email);
-            if (!existedUser) return PatchBoard_ResponseDTO.notExistUser();
 
             board_Entity boardEntity = boardRepository.findByNumber(number);
             if (boardEntity == null) return PatchBoard_ResponseDTO.notExistBoard();

@@ -19,10 +19,4 @@ public class PostBoard_ResponseDTO extends ResponseDTO {
         PostBoard_ResponseDTO result = new PostBoard_ResponseDTO(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
-
-    public static ResponseEntity<ResponseDTO> notExistUser() {
-        ResponseDTO result = new ResponseDTO(ResponseCode.NOT_EXIST_USER, ResponseMessage.NOT_EXIST_USER);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
-    }
-
 }

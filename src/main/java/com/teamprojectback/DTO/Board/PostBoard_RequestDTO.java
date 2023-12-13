@@ -18,6 +18,7 @@ public class PostBoard_RequestDTO {
     @NotBlank
     private String text;
     private String date;
+    private String writer;
 //    @NotNull
 //    private List<String> boardList;
 }
