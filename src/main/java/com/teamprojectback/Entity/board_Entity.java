@@ -21,14 +21,14 @@ public class board_Entity {
     private int number;
     private String title;
     private String date;
-    private String videoId;
+    private String videoInfo;
     private String text;
 
     public board_Entity(PostBoard_RequestDTO dto, String email) {
         this.title = dto.getTitle();
         this.date = dto.getDate();
         this.text =  dto.getText();
-        this.videoId = dto.getVideoId();
+        this.videoInfo = dto.getVideoInfo();
     }
 
     public void patch(PatchBoard_RequestDTO dto) {

@@ -14,7 +14,7 @@ public class PostBoard_RequestDTO {
 
     @NotBlank
     private String title;
-    private String videoId;
+    private String videoInfo;
     @NotBlank
     private String text;
     private String date;
