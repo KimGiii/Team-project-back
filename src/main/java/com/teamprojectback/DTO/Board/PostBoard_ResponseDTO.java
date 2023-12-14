@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 
 @Getter
 public class PostBoard_ResponseDTO extends ResponseDTO {
-
     private PostBoard_ResponseDTO(String code, String message) {
         super(code, message);
     }

@@ -1,9 +1,6 @@
 package com.teamprojectback.Controller;
 
-import com.teamprojectback.DTO.Board.PatchBoard_RequestDTO;
-import com.teamprojectback.DTO.Board.PatchBoard_ResponseDTO;
-import com.teamprojectback.DTO.Board.PostBoard_RequestDTO;
-import com.teamprojectback.DTO.Board.PostBoard_ResponseDTO;
+import com.teamprojectback.DTO.Board.*;
 import com.teamprojectback.Service.Board_Service;
 
 import lombok.RequiredArgsConstructor;
@@ -28,13 +25,26 @@ public class Board_Controller {
         return response;
     }
 
-    @PatchMapping("/{boardNumber}")
+    @PatchMapping("/{number}")
     public ResponseEntity<? super PatchBoard_ResponseDTO> patchBoard(
             @RequestBody @Valid PatchBoard_RequestDTO requestBody,
-            @PathVariable("boardNumber") Integer boardNumber,
-            String email
+            @PathVariable("number") Integer number
     ) {
-        ResponseEntity<? super PatchBoard_ResponseDTO> response = boardService.patchBoard(requestBody, boardNumber, email);
+        ResponseEntity<? super PatchBoard_ResponseDTO> response = boardService.patchBoard(requestBody, number);
+        return response;
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<? super GetBoard_ResponseDTO> getBoard(
+            @PathVariable("number") Integer number
+    ) {
+        ResponseEntity<? super GetBoard_ResponseDTO> response = boardService.getBoard(number);
+        return response;
+    }
+
+    @GetMapping("/latest-list")
+    public ResponseEntity<? super GetLatestBoardList_ResponseDTO> getLatestBoardList() {
+        ResponseEntity<? super GetLatestBoardList_ResponseDTO> response = boardService.getLatestBoardList();
         return response;
     }
 }
